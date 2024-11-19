@@ -1,6 +1,9 @@
 package lotto.config;
 
+import java.util.ArrayList;
 import lotto.controller.LottoController;
+import lotto.domain.LottoFactory;
+import lotto.domain.Lottos;
 import lotto.service.LottoService;
 import lotto.view.InputView;
 import lotto.view.OutputView;
@@ -19,8 +22,10 @@ public class AppConfig {
     }
 
     private LottoService lottoService() {
-        return new LottoService();
+        return new LottoService(lottoFactory());
     }
 
-
+    private LottoFactory lottoFactory() {
+        return new LottoFactory();
+    }
 }
